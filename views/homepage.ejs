@@ -1,0 +1,66 @@
+<!-- Pagina inicial -->
+<style>
+body{
+	background: #ff7200;
+
+}
+
+.main{
+	background: url(/img/smartphone_app.jpg) no-repeat center center fixed; 
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	min-height: 400px;
+}
+
+.main h1{
+	color: white;
+}
+
+.main h5{
+	color: whitesmoke;
+}
+
+iframe{
+	margin: 0 auto;
+	display: block;
+	margin-bottom: 10px;
+}
+</style>
+
+<% if(flash && flash.err) { %>
+<% Object.keys(flash.err).forEach(function(error) { %>
+<div data-alert class="alert-box <%= flash.type %>">
+	<%- JSON.stringify(flash.err[error])%>
+	<a href="#" class="close">&times;</a>
+</div>
+<% }) %>
+<% } %>
+
+<div class="row">
+	<div class="large-3 columns">
+		<img src="/img/logo_msecurity_shadp.png" alt="">
+	</div>
+	<div class="large-9 columns">
+		<!-- Descarga la aplicación -->
+		<a href="/" class="tiny button right secondary">Descarga la aplicación</a>
+
+	</div>
+</div>
+
+<div class="main">
+	<div class="row">
+		<div class="large-6 large-offset-6 columns">
+			<h1 class="text-center">Seguridad universitaria en la palma de tu mano</h1>
+			<h5 class="subheader">Mobile Security te permite reportar las incidencias que ocurran en Ciudad Universitaria para generar un ambiente mas seguro.</h5>
+			<iframe class="text.center" width="300" height="169" src="https://www.youtube.com/embed/6dCo32cn4p4?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+			<p class="text-center">
+				<!-- Login para DASU -->
+				<a href="login" class="tiny button success">Soy DASU</a>
+				<!-- Login para Admin -->
+				<a href="admin/login" class="tiny button ">Soy Admin</a>
+			</p><br>
+		</div>
+	</div>
+</div>

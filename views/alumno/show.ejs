@@ -1,0 +1,16 @@
+<a href="/admin/logout" class="button right tiny">Salir</a>
+<div class="row">
+	<div class="large-8 columns large-centered">
+		<br><br>
+		<h1><%= user.nombre %></h1>
+		
+		<h2 class="subheader">Cuenta</h2>
+		<hr>
+		<h5>Matricula: <%= user.matricula %></h5>
+		<h5>Facultad: <%= user.facultad %></h5>
+		<h5>Correo: <%= user.correo %></h5>
+		<br>
+		<a class="button" href="/alumnos/edit/<%= user.id %>">Editar datos</a>
+	</div>
+	<!--<a class="button success" href="/users">Back</a>-->
+</div>

@@ -1,0 +1,74 @@
+<div class="row">
+	<div class="large-7 columns large-centered">
+		<br>
+		<br>
+		<br>
+
+		<% if(flash && flash.err) { %>
+		<% Object.keys(flash.err).forEach(function(error) { %>
+		<div data-alert class="alert-box <%= flash.type %>">
+			<%- JSON.stringify(flash.err[error][0].message)%>
+			<a href="#" class="close">&times;</a>
+		</div>
+
+		<% }) %>
+		<% } %>
+
+		<br>
+		<h1 align="center">Unete a Mobile Security</h1>
+
+		<div id="status400" data-alert class="alert-box warning round hide">
+			Asegurate de llenar todos los campos de forma correcta.
+			<!--<a href="#" class="close">&times;</a>-->
+		</div>
+
+		<form method="POST" action="/users/create" id="signup-form" data-abide>
+
+			<div class="row">
+				<div class="small-4 columns">
+					<label class="right inline">Nombre Completo:</label>
+				</div>
+				<div class="small-8 columns">
+					<input id="nombre" name="nombre" type="text" required placeholder="Ej. David Montes López" />
+					<small class="error">Introduce un Nombre valido</small>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="small-4 columns">
+					<label class="right inline">Correo Electronico:</label>
+				</div>
+				<div class="small-8 columns">
+					<input id="correo" name="correo" type="text" required pattern="email" placeholder="Ej. domain@email.com" />
+					<small class="error">Introduce un correo valida</small>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="small-4 columns">
+					<label class="right inline">Contraseña:</label>
+				</div>
+				<div class="small-8 columns">
+					<input id="password" name="password" type="password" required placeholder="******"/>
+					<small class="error">Introduce una contraseña valida</small>
+				</div>
+			</div>
+
+			<!--<div class="row">
+				<div class="small-4 columns">
+					<label class="right inline">Repetir Contraseña:</label>
+				</div>
+				<div class="small-8 columns">
+					<input type="password" required placeholder="******" name="passwordConfirmation" data-equalto="password"/>
+					<small class="error">Las contraseñas no concuerdan</small>
+				</div>
+			</div>-->
+
+			<div class="row">
+				<div class="large-12 columns text-center">
+					<input id="signup-button" type="submit" value="Registrar" class="button right"/>
+				</div>
+			</div>
+		</form>
+		<!--<label class="text-center"><img src="img/alumno.gif" style="left: 40pt; top: 80pt">&nbsp;&nbsp;La seguridad estudiantil es primero&nbsp;&nbsp;<img src="img/alumno.gif" ></p></div>-->
+	</div>

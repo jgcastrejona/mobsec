@@ -1,0 +1,21 @@
+<!-- Panel de Admin para gestion de Alumnos y DASU -->
+<div class="row">
+	<% if(flash && flash.err) { %>
+				<% Object.keys(flash.err).forEach(function(error) { %>
+				<div data-alert class="alert-box <%= flash.type %>">
+					<%- JSON.stringify(flash.err[error])%>
+					<a href="#" class="close">&times;</a>
+			</div>
+		<% }) %>
+	<% } %>
+	<a href="/admin/logout" class="button right tiny">Salir</a>
+	<div class="small-6 small-centered columns">
+		<h1>Dashboard Admin</h1>
+		<br>
+		<hr>
+		<!-- Gestion de Alumnos -->
+		<div><a href="/panel/alumno">Alumnos</a></div>
+		<!-- Gestion de DASU -->
+		<div><a href="/panel/DASU">DASU</a></div>
+	</div>
+</div>

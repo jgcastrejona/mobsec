@@ -1,0 +1,55 @@
+<!-- Visualización de todos los alumnos-->
+<a href="/admin/logout" class="button right tiny">Salir</a>
+<div class="row">
+	<div class="small-10 small-centered columns">
+		<% if(flash && flash.err) { %>
+		<% Object.keys(flash.err).forEach(function(error) { %>
+		<div data-alert class="alert-box <%= flash.type %>">
+			<%- flash.err[error]%>
+			<a href="#" class="close">&times;</a>
+		</div>
+		<% }) %>
+		<% } %>
+		<h1>Panel Alumnos</h1>
+		<br>
+		<!-- Creacion de nuevo alumno -->
+		<a href="/panel/alumno/new" class="button tiny">Agregar</a>
+		<hr>
+		<table>
+			<thead>
+				<tr>
+					<!-- Campos del modelo Alumno -->
+					<th>Nombre</th>
+					<th>Matricula</th>
+					<th>Facultad</th>
+					<th>Correo</th>
+					<th>Creado En</th>
+					<th>Actualizado En</th>
+					<th>Acciones</th>
+				</tr>
+			</thead>
+			<tbody>
+		<%  Object.keys(users).forEach(function(user) {%>
+			<tr>
+				
+				<td><%- users[user].nombre %></td>
+				<td><%= users[user].matricula %></td>
+				<td><%= users[user].facultad %></td>
+				<td><%= users[user].correo %></td>
+				<td><%= users[user].createdAt %></td>
+				<td><%= users[user].updatedAt %></td>
+				<td>
+					<!-- Modificar Alumno -->
+					<a href="/panel/alumno/update/<%= users[user].id %>" class="button tiny">Modificar</a>
+					<!-- Eliminar Alumno -->
+					<form action="/panel/alumno/destroy/<%= users[user].id %>" method="POST">
+						<input type="submit" class="button tiny warning" value="Eliminar">
+					</form>
+					
+				</td>
+			</tr>
+		<%  })%>
+			</tbody>
+		</table>
+	</div>
+</div>

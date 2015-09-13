@@ -1,0 +1,45 @@
+<a href="/admin/logout" class="button right tiny">Salir</a>
+<div class="row">
+	<div class="small-10 small-centered columns">
+		<% if(flash && flash.err) { %>
+		<% Object.keys(flash.err).forEach(function(error) { %>
+		<div data-alert class="alert-box <%= flash.type %>">
+			<%- JSON.stringify(flash.err[error])%>
+			<a href="#" class="close">&times;</a>
+		</div>
+		<% }) %>
+		<% } %>
+		<h1>Panel DASU</h1>
+		<br>
+		<a href="/panel/dasu/new" class="button tiny">Agregar</a>
+		<hr>
+		<table>
+			<thead>
+				<tr>
+					<th>Nombre</th>
+					<th>Usuario</th>
+					<th>Tipo</th>
+					<th>Creado En</th>
+					<th>Actualizado En</th>
+					<th>Acciones</th>
+				</tr>
+			</thead>
+			<tbody>
+		<%  Object.keys(users).forEach(function(user) {%>
+			<tr>
+				
+				<td><%- users[user].nombre %></td>
+				<td><%= users[user].usuario %></td>
+				<td><%= users[user].tipo %></td>
+				<td><%= users[user].createdAt %></td>
+				<td><%= users[user].updatedAt %></td>
+				<td>
+					<a href="/panel/dasu/update/<%= users[user].id %>" class="button tiny">Modificar</a>
+					<a href="#" class="button tiny warning">Eliminar</a>
+				</td>
+			</tr>
+		<%  })%>
+			</tbody>
+		</table>
+	</div>
+</div>

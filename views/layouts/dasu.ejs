@@ -1,0 +1,116 @@
+<!-- Plantilla para Dashboard del DASU -->
+<!DOCTYPE html>
+<html>
+<head>
+	<title>DASU - Mobile Security</title>
+
+	<!-- Viewport mobile tag for sensible mobile support -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<!--STYLES-->
+	<link rel="stylesheet" href="/styles/normalize.css">
+	<link rel="stylesheet" href="/styles/foundation.min.css">
+	<!--STYLES END-->
+	<link rel="stylesheet" href="/styles/miestilo.css">
+
+	<script src="/js/vendor/modernizr.js"></script>
+</head>
+
+<body>
+	<%- body %>
+
+	<!--TEMPLATES-->
+	
+	<!--TEMPLATES END-->
+
+	<!--SCRIPTS-->
+	<script src="/js/dependencies/sails.io.js"></script>
+	<script src="/js/vendor/jquery.js"></script>
+	<script src="/js/foundation.min.js"></script>
+	<!--SCRIPTS END-->
+
+	<!-- Creacion de marcadores del Mapa -->
+	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true"></script>
+	<script type="text/javascript">
+	$(document).foundation();
+
+	$(document).ready(function(){
+		var map;
+		var lat;
+		var lng;
+		var markers = [];
+
+		$(".estacion-item").click(function(){
+			var lat = $(this).data('lat')
+			var lng = $(this).data('lng')
+
+			centerMap(lat,lng)
+		})
+
+		var mapOptions = {
+			zoom: 16,
+			center: new google.maps.LatLng(19.000238, -98.200426),
+		};
+
+		function initialize() {
+			map = new google.maps.Map(document.getElementById('map-canvas'),mapOptions);
+
+			addMarkers();
+
+			/*
+			google.maps.event.addListener(map, 'click', function(e) {
+				placeMarker(e.latLng, map);
+			});
+	*/
+}
+
+		//Centrar mapa en reporte
+		function centerMap(latitude,longitude){
+			var myLatlng = new google.maps.LatLng(latitude, longitude);
+			map.setCenter(myLatlng);
+		}
+
+		// Agregar marcadores
+		function addMarkers(){
+			var myLatlng;
+			var marker;
+			var infowindow = new google.maps.InfoWindow();
+			var i=0;
+			<% Object.keys(reportes).forEach(function(reporte) { %>
+				myLatlng = new google.maps.LatLng( <%= reportes[reporte].latitud %>, <%= reportes[reporte].longitud %>);
+
+				marker = new google.maps.Marker({
+					position: myLatlng,
+					map: map,
+					icon: 'img/'+<%- JSON.stringify(reportes[reporte]["tipo"].toLowerCase().replace(/[^A-Z0-9]/ig, "_")) %> + '.png'
+				});
+
+				google.maps.event.addListener(marker, 'click', (function(marker, i) {
+					return function() {
+						var contentString = "<div class='popup'>";
+						contentString += "<h6>"+ <%- JSON.stringify(reportes[reporte]["titulo"]) %> + "</h6>";
+						contentString += "<p><span>" + <%- JSON.stringify(reportes[reporte]["tipo"]) %> 
+						contentString += "</span> "  + <%- JSON.stringify(reportes[reporte]["descripcion"]) %> +"</p>";
+						contentString += "</div>";
+
+						infowindow.setContent( contentString.toString() );
+						infowindow.open(map, marker);
+					}
+				})(marker, i));
+				i++;
+				//marker.setMap(map);
+
+			<% }) %>
+		}
+
+
+		google.maps.event.addDomListener(window, 'load', initialize);
+	});
+
+
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<a href="/admin/logout" class="button right tiny">Salir</a>
+<div class="row">
+ 	<div class="large-8 columns large-centered">
+ 		<form action="/panel/dasu/update/<%= user.id %>" method="POST" class="form-signin">
+ 			<br>
+ 			<h2>Editar perfil </h2>
+
+ 			<div class="row">
+ 				<div class="small-3 columns"><label>Nombre</label></div>
+ 			 	<div class="small-9 columns"><input value="<%= user.nombre %>" name="nombre" type="text" class="form-control"/></div>
+ 			</div>
+ 			<div class="row">
+ 				<div class="small-3 columns"><label>Usuario</label></div>
+ 			 	<div class="small-9 columns"><input value="<%= user.usuario %>" name="usuario" type="text" class="form-control"/></div>
+ 			 </div>
+ 			<br>
+ 			<input type="submit" value="Enviar cambios" class="button"/>
+ 			<input type="hidden" name="_csrf" value="<%= _csrf %>" />
+ 		</form>
+ 	</div>
+ </div>

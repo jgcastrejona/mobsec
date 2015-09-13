@@ -1,0 +1,148 @@
+<!-- Dashboard para DASU donde se visualizan los reportes junto con el mapa -->
+<a href="/logout" class="tiny button right">Salir</a>
+
+<div id="main">
+	
+	<div class="row">
+		
+		<div class="large-12 columns main__inner">
+			<% if(flash && flash.err) { %>
+    <% Object.keys(flash.err).forEach(function(error) { %>
+        <div data-alert class="alert-box <%= flash.type %>">
+            <%- JSON.stringify(flash.err[error])%>
+            <a href="#" class="close">&times;</a>
+        </div>
+    <% }) %>
+<% } %>
+
+			<div class="row">
+				<div class="large-4 small-12 columns">		
+					<div class="logrep">
+						<div class="row">
+							<div class="large-12 columns">
+								<h3>Reportes</h3>	
+							</div>
+							
+							<!-- Creacion de objeto reporte por cada uno encontrado -->
+							<%  Object.keys(reportes).forEach(function(reporte) { %>
+
+							<div class="large-12 columns" >
+								<div class="boxreporte">
+									<div class="fecha">
+										<%= moment( reportes[reporte].createdAt ).format("HH:MM A /DD/MM/YYYY") %>
+									</div>
+									<div class="incidente">
+										<img src="/img/<%= reportes[reporte].tipo.toLowerCase().replace(/[^A-Z0-9]/ig, "_") %>.png" alt="">
+										<a id="estacion2" class="estacion-item" data-lng="<%= reportes[reporte].longitud %>" data-lat="<%= reportes[reporte].latitud %>">
+											<%= reportes[reporte].titulo %>
+										</a>
+									</div>
+									<div class="quepaso">
+										<%= reportes[reporte].descripcion %> - Por: <a href="#"><%= reportes[reporte]['enviadoPor']['matricula'] %></a> 
+									</div>
+									<hr>
+								</div>
+							</div>
+							<% }) %>
+						</div>
+					</div>
+
+					<button class="vermas button expand" >VER MAS</button>
+
+				</div>
+				<div class="large-8 small-12 columns"  >
+					<div class="row">
+						<div class="large-6 columns">
+													<div class="filtros">
+						<div class="filtros__form">
+							<form action="/dashboard" method="GET">
+								<div class="row">
+									<div class="large-12 columns">
+										<h6>Filtrar por</h6>
+									</div>
+									<div class="large-7 columns">
+										<!-- Filtro fecha-->
+										<div class="row">
+											<div class="large-2 columns">
+												<label class="inline">De:</label>
+											</div>
+											<div class="large-10 columns">
+												<input type="date" name="fechaDe" value="<%= fechaDe %>">
+											</div>
+										</div>
+
+									</div>
+
+									<div class="large-5 columns">
+										<!-- Filtro tipo de reporte-->
+										<div class="row">
+											<div class="large-3 columns">
+												<label class="inline">Tipo:</label>
+											</div>
+
+											<div class="large-9 columns">
+												<select name="tipo" id="">
+													<option value="">Todas las categorias</option>
+													<% if(categorias && categorias["_settledValue"]) { %>
+													<% Object.keys(categorias["_settledValue"]).forEach(function(categoria){ %>
+													<option 
+														<% console.log(categorias["_settledValue"][categoria].tipo.toLowerCase().replace(/[^A-Z0-9]/ig, "_") ) %>
+														<%=	categorias["_settledValue"][categoria].tipo == tipo ? 'selected' : '' %>
+														value="<%= categorias["_settledValue"][categoria].id %>">
+														<%= categorias["_settledValue"][categoria].tipo %>
+													</option>
+													<% }) 
+													}
+													%>
+												</select>
+											</div>
+										</div>
+									</div>
+
+									<div class="large-7 columns">
+										<!-- Filtro fecha-->
+										<div class="row">
+											<div class="large-2 columns">
+												<label class="inline">A:</label>
+											</div>
+											<div class="large-10 columns">
+												<input type="date" name="fechaA" value="<%= fechaA %>">
+											</div>
+										</div>
+
+									</div>
+
+									<div class="large-5 columns">
+										<!-- Enviar -->
+										<input type="submit" value="Filtrar" class="button right tiny">
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+						</div>
+						<div class="large-6 columns">
+							<div class="simbologia">
+							<h6>Simbologia</h6>
+							<ul class="large-block-grid-3">
+								<li><img src="img/vandalismo.png" alt="">Vandalismo</li>
+								<li><img src="img/incendio.png" alt="">Incendio</li>
+								<li><img src="img/accidente_vial.png" alt="">Accidente vial</li>
+								<li><img src="img/accidente_peatonal.png" alt="">Accidente peatonal</li>
+								<li><img src="img/emergencia_m_dica.png" alt="">Emergencia Médica</li>
+								<li><img src="img/robo_asalto.png" alt="">Robo/Asalto</li>
+								<li><img src="img/otro.png" alt="">Otro</li>
+							</ul>
+					</div>
+						</div>
+				</div>
+
+					
+					<!-- Mapa de reportes -->
+					<div id="map-canvas"></div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>

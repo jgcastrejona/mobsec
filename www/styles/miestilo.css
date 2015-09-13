@@ -1,0 +1,124 @@
+body{
+	background: #41C0C2;
+}
+
+button.vermas{
+	letter-spacing: 2px;
+	font-family: 'Source Sans Pro';
+	background-color: #f00;
+	padding-left: 40px;
+	padding-right: 40px;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	font-size: 0.8em;
+	border-radius: 0.4em;
+}
+#map-canvas {
+	height: 500px;
+	margin: 0px;
+	padding-top: 12px;
+}
+
+#map-canvas img{
+	max-width: none;
+}
+.undermap{
+	border-color: #ffffff;
+	font-family: "MS Reference Sans Serif";
+	background-color: #ffffff;
+	border-radius: 10px;
+	padding-left: 5px;
+	padding-right: 8px;
+	padding-top: 8px;
+	font-size: 0.76em;
+	letter-spacing: 4px
+}
+.fecha{
+	padding-top: -10em;
+	font-family: 'Source Sans Pro Light';
+	font-weight: bolder; 
+	letter-spacing:2px;
+	color: #D5D9DE;
+	font-size: 0.7em;
+	line-height:1.9em;
+}
+.incidente{
+	font-size: 0.8em;
+	font-family: 'Source Sans Pro Black';
+	letter-spacing:2px;
+	color: #9EA783;
+	line-height:1.5em;
+	text-transform: uppercase;
+}
+.quepaso{
+	font-size: 0.7em;
+	font-family: 'Source Sans Pro Light';
+	color: #9EA783;
+	letter-spacing:0.2em;
+	text-align: justify; 
+}
+.boxreporte{
+	padding: 5px 10px 10px 10px;
+	box-sizing: border-box;
+}
+
+.boxreporte hr{
+	border-bottom: 1px solid #41C0C2;
+	margin: 10px 0 0 0;
+}
+
+.logrep{
+	margin: 15px 0;
+	overflow: auto;
+	overflow-x: hidden;
+	height:590px;
+	//overflow: auto;
+	padding-top: 10px;
+	background-color: #ffffff;
+}
+.subtitulosec{
+	width: 25em;
+	padding-left: 2.8em;
+	padding-bottom: 0.7em;
+	padding-top: 1.8em;
+	background-color: #ffffff;
+	letter-spacing: 4px;
+	font-family: 'Source Sans Pro Semibold';
+	font-size: 0.7em;
+}
+.menust{
+	background-color: #41C0C2;
+	padding-top: 0.3em;
+	padding-bottom: 0.3em;
+}
+.textoboton{
+	text-align: center;
+	padding-top: 2.8em;
+	padding-left: 2.3em;
+	padding-right: 2.3em;
+	padding-bottom: 0.8em;
+	width: 17.5em;
+	background-color: #ffffff;
+}
+#main{
+	padding-top: 30px;
+	padding-bottom: 30px;
+}
+
+.main__inner{
+	background-color: #eeeeee;
+}
+
+.simbologia li{
+	font-size: 11px;
+	padding-bottom: 10px;
+}
+
+.simbologia li img{
+	max-width: 20px;
+	margin-right: 5px;
+}
+
+.filtros{
+	margin-top: 15px;
+}

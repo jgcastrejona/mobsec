@@ -1,0 +1,451 @@
+ <!-- Pantalla de Editar Alumno -->
+ <a href="/admin/logout" class="button right tiny">Salir</a>
+ <div class="row">
+ 	<div class="large-8 columns large-centered">
+ 		<form action="/panel/alumno/update/<%= user.id %>" method="POST" class="form-signin" data-abide>
+ 			<br>
+ 			<h2>Editar perfil </h2>
+				
+			<div class="row">
+				<div class="small-4 columns">
+					<label class="right inline">Matricula:</label>
+				</div>
+				<div class="small-8 columns">
+					<!-- Campo matricula-->
+					<input id="matricula" name="matricula" value="<%= user.matricula %>" type="text" required pattern="matricula" placeholder="Ej. 201028798" />
+					<small class="error">Introduce una matricula valida</small>
+				</div>
+			</div>
+			<div class="row">
+				<div class="small-4 columns">
+					<label class="right inline">Nombre Completo:</label>
+				</div>
+				<div class="small-8 columns">
+					<!-- Campo nombre-->
+					<input id="nombre" name="nombre" value="<%= user.nombre %>" type="text" required placeholder="Ej. David Montes López" />
+					<small class="error">Introduce un Nombre valido</small>
+				</div>
+			</div>
+			<div class="row">
+				<div class="small-4 columns">
+					<label class="right inline">Facultad:</label>
+				</div>
+				<div class="small-8 columns">
+						<!-- Campo facultad-->
+										<select id="facultad" name="facultad" type="text" required>
+		              <option VALUE="Adm. Publica y Cs. Politicas">Adm. Publica y Cs. Politicas</option>
+		              
+		              <option VALUE="Administración">Administración</option>
+		              
+		              <option VALUE="Administración de Empresas">Administración de Empresas</option>
+		              
+		              <option VALUE="Administración Pública">Administración Pública</option>
+		              
+		              <option VALUE="Administración Turística">Administración Turística</option>
+		              
+		              <option VALUE="Antropología">Antropología</option>
+		              
+		              <option VALUE="Arquitectura">Arquitectura</option>
+		              
+		              <option VALUE="Arte">Arte</option>
+		              
+		              <option VALUE="Arte Drámatico">Arte Drámatico</option>
+		              
+		              <option VALUE="Biología">Biología</option>
+		              
+		              <option VALUE="Biomedicina">Biomedicina</option>
+		              
+		              <option VALUE="Ciencias de la Computación">Ciencias de la Computación</option>
+		              
+		              <option VALUE="Ciencias Políticas">Ciencias Políticas</option>
+		              
+		              <option VALUE="Comercio Internacional">Comercio Internacional</option>
+		              
+		              <option VALUE="Comunicación">Comunicación</option>
+		              
+		              <option VALUE="Consultoría Jurídica">Consultoría Jurídica</option>
+		              
+		              <option VALUE="Contaduria Pública">Contaduria Pública</option>
+		              
+		              <option VALUE="Criminología">Criminología</option>
+		              
+		              <option VALUE="Cultura Física">Cultura Física</option>
+		              
+		              <option VALUE="Danza Moderna Clásica">Danza Moderna Clásica</option>
+		              
+		              <option VALUE="Derecho">Derecho</option>
+		              
+		              <option VALUE="Diseño Gráfico">Diseño Gráfico</option>
+		              
+		              <option VALUE="Diseño Urbano Ambiental">Diseño Urbano Ambiental</option>
+		              
+		              <option VALUE="Doc. Cs. de la Microbiología">Doc. Cs. de la Microbiología</option>
+		              
+		              <option VALUE="Doc. Cs. (Esp. Cs. Materiales)">Doc. Cs. (Esp. Cs. Materiales)</option>
+		              
+		              <option VALUE="Doc Cs Gobierno y Politica">Doc Cs Gobierno y Politica</option>
+		              
+		              <option VALUE="Doc. Disp. Semiconductores">Doc. Disp. Semiconductores</option>
+		              
+		              <option VALUE="Doc. en Cs. Ambientales">Doc. en Cs. Ambientales</option>
+		              
+		              <option VALUE="Doc. en Cs. del Lenguaje">Doc. en Cs. del Lenguaje</option>
+		              
+		              <option VALUE="Doc. en Cs. Fisiologicas">Doc. en Cs. Fisiologicas</option>
+		              
+		              <option VALUE="Doc. en Cs. Matematicas">Doc. en Cs. Matematicas</option>
+		              
+		              <option VALUE="Doc en Cs Quimica Bioquimica y Bio Molecular">Doc en Cs Quimica Bioquimica y Bio Molecular</option>
+		              
+		              <option VALUE="Doc. en Economia Pol del Desar">Doc. en Economia Pol del Desar</option>
+		              
+		              <option VALUE="Doc en Literatura Hispanoamericana">Doc en Literatura Hispanoamericana</option>
+		              
+		              <option VALUE="Doc en Proc Territoriales-RCAP">Doc en Proc Territoriales-RCAP</option>
+		              
+		              <option VALUE="Doc en Procesos Territoriales">Doc en Procesos Territoriales</option>
+		              
+		              <option VALUE="Doc.Cs. (Esp. Cs. Materiales)">Doc.Cs. (Esp. Cs. Materiales)</option>
+		              
+		              <option VALUE="Doctorado en Ciencias (Fisica)">Doctorado en Ciencias (Fisica)</option>
+		              
+		              <option VALUE="Doctorado en Ciencias Quimicas">Doctorado en Ciencias Quimicas</option>
+		              
+		              <option VALUE="Doctorado en Cs de la Optoelec">Doctorado en Cs de la Optoelec</option>
+		              
+		              <option VALUE="Doctorado en Cs. de Materiales">Doctorado en Cs. de Materiales</option>
+		              
+		              <option VALUE="Doctorado en CS Fisica Aplicadas">Doctorado en CS Fisica Aplicadas</option>
+		              
+		              <option VALUE="Doctorado en Cs. Quimicas">Doctorado en Cs. Quimicas</option>
+		              
+		              <option VALUE="Doctorado en Derecho">Doctorado en Derecho</option>
+		              
+		              <option VALUE="Doctorado en Historia">Doctorado en Historia</option>
+		              
+		              <option VALUE="Doctorado en Sociologia">Doctorado en Sociologia</option>
+		              
+		              <option VALUE="Dr. en CS(micribiologia)">Dr. en CS(micribiologia)</option>
+		              
+		              <option VALUE="Economía">Economía</option>
+		              
+		              <option VALUE="Electrónica">Electrónica</option>
+		              
+		              <option VALUE="Enfermería">Enfermería</option>
+		              
+		              <option VALUE="Esp. en Estomatologia Pediatrica">Esp. en Estomatologia Pediatrica</option>
+		              
+		              <option VALUE="Esp. en Enfermeria Cardiovas.">Esp. en Enfermeria Cardiovas.</option>
+		              
+		              <option VALUE="Esp. en Enfermeria Oncologia">Esp. en Enfermeria Oncologia</option>
+		              
+		              <option VALUE="Esp. en Enfermeria Perinatal">Esp. en Enfermeria Perinatal</option>
+		              
+		              <option VALUE="Esp. Enf en Admon y G de C.S.">Esp. Enf en Admon y G de C.S.</option>
+		              
+		              <option VALUE="Esp. Enf en Ges. C. S.">Esp. Enf en Ges. C. S.</option>
+		              
+		              <option VALUE="Esp. Enf. en Sal. C. E.F.">Esp. Enf. en Sal. C. E.F.</option>
+		              
+		              <option VALUE="Esp. Éti. Cult. Mundo Contemp.">Esp. Éti. Cult. Mundo Contemp.</option>
+		              
+		              <option VALUE="Especialidad en Finanzas">Especialidad en Finanzas</option>
+		              
+		              <option VALUE="Estomatología">Estomatología</option>
+		              
+		              <option VALUE="Etnocoreología">Etnocoreología</option>
+		              
+		              <option VALUE="Farmacia">Farmacia</option>
+		              
+		              <option VALUE="Filosofía">Filosofía</option>
+		              
+		              <option VALUE="Finanzas">Finanzas</option>
+		              
+		              <option VALUE="Física">Física</option>
+		              
+		              <option VALUE="Física Aplicada">Física Aplicada</option>
+		              
+		              <option VALUE="Fisioterapia">Fisioterapia</option>
+		              
+		              <option VALUE="Francés">Francés</option>
+		              
+		              <option VALUE="Gastronomía">Gastronomía</option>
+		              
+		              <option VALUE="Historia">Historia</option>
+		              
+		              <option VALUE="Historia Minerva">Historia Minerva</option>
+		              
+		              <option VALUE="Ing. Agronomica Zootecnista">Ing. Agronomica Zootecnista</option>
+		              
+		              <option VALUE="Ing. Ambiental Minerva">Ing. Ambiental Minerva</option>
+		              
+		              <option VALUE="Ing. Civil Minerva">Ing. Civil Minerva</option>
+		              
+		              <option VALUE="Ing. en Alimentos Minerva">Ing. en Alimentos Minerva</option>
+		              
+		              <option VALUE="Ing. en Cs. de la Computación">Ing. en Cs. de la Computación</option>
+		              
+		              <option VALUE="Ing. Energías Renovables MUM">Ing. Energías Renovables MUM</option>
+		              
+		              <option VALUE="Ing. Mecánica y Eléctrica">Ing. Mecánica y Eléctrica</option>
+		              
+		              <option VALUE="Ingenieria. Topográfica y Geodésica">Ingenieria. Topográfica y Geodésica</option>
+		              
+		              <option VALUE="Ingenieria Agroforestal">Ingenieria Agroforestal</option>
+		              
+		              <option VALUE="Ingenieria Agrohidraúlica">Ingenieria Agrohidraúlica</option>
+		              
+		              <option VALUE="Ingenieria Agroindustrial">Ingenieria Agroindustrial</option>
+		              
+		              <option VALUE="Ingeniería Agroindustrial">Ingeniería Agroindustrial</option>
+		              
+		              <option VALUE="Ingenieria Ambiental">Ingenieria Ambiental</option>
+		              
+		              <option VALUE="Ingenieria Civil">Ingenieria Civil</option>
+		              
+		              <option VALUE="Ingenieria en Alimentos">Ingenieria en Alimentos</option>
+		              
+		              <option VALUE="Ingenieria en Materiales">Ingenieria en Materiales</option>
+		              
+		              <option VALUE="Ingenieria en Mecatrónica">Ingenieria en Mecatrónica</option>
+		              
+		              <option VALUE="Ingenieria Geofísica">Ingenieria Geofísica</option>
+		              
+		              <option VALUE="Ingenieria Industrial">Ingenieria Industrial</option>
+		              
+		              <option VALUE="Ingenieria Química">Ingenieria Química</option>
+		              
+		              <option VALUE="Ingenieria Textil">Ingenieria Textil</option>
+		              
+		              <option VALUE="Ing. Tec. de la Informacion">Ing. Tec. de la Informacion</option>
+		              
+		              <option VALUE="Lengua Francesa">Lengua Francesa</option>
+		              
+		              <option VALUE="Lenguas Modernas">Lenguas Modernas</option>
+		              
+		              <option VALUE="Lic. en Filosofía">Lic. en Filosofía</option>
+		              
+		              <option VALUE="Lic. en Materiales">Lic. en Materiales</option>
+		              
+		              <option VALUE="Lic. Medicina">Lic. Medicina</option>
+		              
+		              <option VALUE="Lic. Musica">Lic. Musica</option>
+		              
+		              <option VALUE="Linguistica y Lit. Hispanica">Linguistica y Lit. Hispanica</option>
+		              
+		              <option VALUE="Literatura">Literatura</option>
+		              
+		              <option VALUE="Maestria Cs. de la Enfermeria">Maestria Cs. de la Enfermeria</option>
+		              
+		              <option VALUE="Maestría en Administración">Maestría en Administración</option>
+		              
+		              <option VALUE="Maestria en Ciencias de Materi">Maestria en Ciencias de Materi</option>
+		              
+		              <option VALUE="Maestria en Ciencias (Fisica)">Maestria en Ciencias (Fisica)</option>
+		              
+		              <option VALUE="Maestria en Ciencias Sociales">Maestria en Ciencias Sociales</option>
+		              
+		              <option VALUE="Maestría en Contribuciones">Maestría en Contribuciones</option>
+		              
+		              <option VALUE="Maestria en Cs Estomatologicas">Maestria en Cs Estomatologicas</option>
+		              
+		              <option VALUE="Maestria en CS Matemáticas">Maestria en CS Matemáticas</option>
+		              
+		              <option VALUE="Maestria en Cs Mcro.(Mic Med)">Maestria en Cs Mcro.(Mic Med)</option>
+		              
+		              <option VALUE="Maestria en Cs. Quimicas">Maestria en Cs. Quimicas</option>
+		              
+		              <option VALUE="Maestria en Cs. Quimicas(BQBM)">Maestria en Cs. Quimicas(BQBM)</option>
+		              
+		              <option VALUE="Maestría en CS y Juegos Deport">Maestría en CS y Juegos Deport</option>
+		              
+		              <option VALUE="Maestria en Derecho Der Fiscal">Maestria en Derecho Der Fiscal</option>
+		              
+		              <option VALUE="Maestría en Economía">Maestría en Economía</option>
+		              
+		              <option VALUE="Maestria en Educacion en Cs">Maestria en Educacion en Cs</option>
+		              
+		              <option VALUE="Maestría en Estética y Arte">Maestría en Estética y Arte</option>
+		              
+		              <option VALUE="Maestría en Filosofía">Maestría en Filosofía</option>
+		              
+		              <option VALUE="Maestria en Geotecnia">Maestria en Geotecnia</option>
+		              
+		              <option VALUE="Maestria en Gobierno y Admon.">Maestria en Gobierno y Admon.</option>
+		              
+		              <option VALUE="Maestría en Historia">Maestría en Historia</option>
+		              
+		              <option VALUE="Maestria en Ing. de Tran. y T.">Maestria en Ing. de Tran. y T.</option>
+		              
+		              <option VALUE="Maestría en Ing. Estructural">Maestría en Ing. Estructural</option>
+		              
+		              <option VALUE="Maestria en Ingenieria">Maestria en Ingenieria</option>
+		              
+		              <option VALUE="Maestria en Matematicas">Maestria en Matematicas</option>
+		              
+		              <option VALUE="Maestria en Optoelectronica">Maestria en Optoelectronica</option>
+		              
+		              <option VALUE="Maestria en Ortodoncia">Maestria en Ortodoncia</option>
+		              
+		              <option VALUE="Maestria en Psicologia Social">Maestria en Psicologia Social</option>
+		              
+		              <option VALUE="Maestría en Sociología">Maestría en Sociología</option>
+		              
+		              <option VALUE="Maestria en Valuacion">Maestria en Valuacion</option>
+		              
+		              <option VALUE="Maestria Ingenieria Ambiental">Maestria Ingenieria Ambiental</option>
+		              
+		              <option VALUE="Maestría Literatura Mexicana">Maestría Literatura Mexicana</option>
+		              
+		              <option VALUE="Matemáticas">Matemáticas</option>
+		              
+		              <option VALUE="Matemáticas Aplicadas">Matemáticas Aplicadas</option>
+		              
+		              <option VALUE="Mecatrónica">Mecatrónica</option>
+		              
+		              <option VALUE="Med Familiar y Comunitaria">Med Familiar y Comunitaria</option>
+		              
+		              <option VALUE="Med. Veterinario Zootecnista">Med. Veterinario Zootecnista</option>
+		              
+		              <option VALUE="Médico Cirujano y Partero">Médico Cirujano y Partero</option>
+		              
+		              <option VALUE="Maestria en Cs Microbiologicas">Maestria en Cs Microbiologicas</option>
+		              
+		              <option VALUE="Mtra. Cs Estoma. Integral">Mtra. Cs Estoma. Integral</option>
+		              
+		              <option VALUE="Mtra. Cs Estoma. Ortodoncia">Mtra. Cs Estoma. Ortodoncia</option>
+		              
+		              <option VALUE="Mtra. Cs Estoma. Pediatrica">Mtra. Cs Estoma. Pediatrica</option>
+		              
+		              <option VALUE="Mtra. Cs Estoma. Rehab. Oral">Mtra. Cs Estoma. Rehab. Oral</option>
+		              
+		              <option VALUE="Mtra. en Enfermeria">Mtra. en Enfermeria</option>
+		              
+		              <option VALUE="Mtria. Ciencias Fisiologicas">Mtria. Ciencias Fisiologicas</option>
+		              
+		              <option VALUE="Mtria. Cs. Medicas e Investig.">Mtria. Cs. Medicas e Investig.</option>
+		              
+		              <option VALUE="Mtria. Diag. y Rehab. Neuropsi">Mtria. Diag. y Rehab. Neuropsi</option>
+		              
+		              <option VALUE="Mtria. Disp. Semiconductores">Mtria. Disp. Semiconductores</option>
+		              
+		              <option VALUE="Mtria. en Admon.y Gest.de Ins.">Mtria. en Admon.y Gest.de Ins.</option>
+		              
+		              <option VALUE="Mtria en Antropolog. Sociocult">Mtria en Antropolog. Sociocult</option>
+		              
+		              <option VALUE="Mtria en Antropologia Social">Mtria en Antropologia Social</option>
+		              
+		              <option VALUE="Mtria. en Ciencias Politicas">Mtria. en Ciencias Politicas</option>
+		              
+		              <option VALUE="Mtria. en Cs. Ambientales">Mtria. en Cs. Ambientales</option>
+		              
+		              <option VALUE="Mtria. en Cs de Educacion">Mtria. en Cs de Educacion</option>
+		              
+		              <option VALUE="Mtria en Cs. de la Computacion">Mtria en Cs. de la Computacion</option>
+		              
+		              <option VALUE="Mtria en Cs de la Comunicacion">Mtria en Cs de la Comunicacion</option>
+		              
+		              <option VALUE="Mtria. en Cs. de la Elec. Aut.">Mtria. en Cs. de la Elec. Aut.</option>
+		              
+		              <option VALUE="Mtría. en Cs. del Lenguaje">Mtría. en Cs. del Lenguaje</option>
+		              
+		              <option VALUE="Mtria en CS Fisica Aplicada">Mtria en CS Fisica Aplicada</option>
+		              
+		              <option VALUE="Mtria en Cs Medicas e Investig">Mtria en Cs Medicas e Investig</option>
+		              
+		              <option VALUE="Mtria. en Der. Civ. y Merc.">Mtria. en Der. Civ. y Merc.</option>
+		              
+		              <option VALUE="Mtria. en Der. del Trabajo y S">Mtria. en Der. del Trabajo y S</option>
+		              
+		              <option VALUE="Mtria. en Der. Económico">Mtria. en Der. Económico</option>
+		              
+		              <option VALUE="Mtria. en Derecho Der. Consti.">Mtria. en Derecho Der. Consti.</option>
+		              
+		              <option VALUE="Mtria. en Derecho Der(Co y Am)">Mtria. en Derecho Der(Co y Am)</option>
+		              
+		              <option VALUE="Mtria. en Des. Eco. y Coop Int">Mtria. en Des. Eco. y Coop Int</option>
+		              
+		              <option VALUE="Mtria en Dis. Arquitectonico">Mtria en Dis. Arquitectonico</option>
+		              
+		              <option VALUE="Mtria. en Disp. Semiconductore">Mtria. en Disp. Semiconductore</option>
+		              
+		              <option VALUE="Mtria en Educ F y Deporte Esc">Mtria en Educ F y Deporte Esc</option>
+		              
+		              <option VALUE="Mtria. en Educacion Matematica">Mtria. en Educacion Matematica</option>
+		              
+		              <option VALUE="Mtria en Educacion Superior">Mtria en Educacion Superior</option>
+		              
+		              <option VALUE="Mtria en Esp. Cs. Penales">Mtria en Esp. Cs. Penales</option>
+		              
+		              <option VALUE="Mtria. en Est. en Endodoncia">Mtria. en Est. en Endodoncia</option>
+		              
+		              <option VALUE="Mtria. en Est. en Ortodoncia">Mtria. en Est. en Ortodoncia</option>
+		              
+		              <option VALUE="Mtria. en Est. en Pediatria">Mtria. en Est. en Pediatria</option>
+		              
+		              <option VALUE="Mtria. en Est. en Reh. Oral">Mtria. en Est. en Reh. Oral</option>
+		              
+		              <option VALUE="Mtria. en Estomatologia Integr">Mtria. en Estomatologia Integr</option>
+		              
+		              <option VALUE="Mtria. en Estomatologia Pediat">Mtria. en Estomatologia Pediat</option>
+		              
+		              <option VALUE="Mtria en Fiscalizacion R de C">Mtria en Fiscalizacion R de C</option>
+		              
+		              <option VALUE="Mtria. en Ing Elec, Op In Elec">Mtria. en Ing Elec, Op In Elec</option>
+		              
+		              <option VALUE="Mtria. en Ing. Química">Mtria. en Ing. Química</option>
+		              
+		              <option VALUE="Mtria en la Ensenanza del Ingl">Mtria en la Ensenanza del Ingl</option>
+		              
+		              <option VALUE="Mtria en la Enseñ. del Ingles">Mtria en la Enseñ. del Ingles</option>
+		              
+		              <option VALUE="Mtria. en M Sostenible Sist Ag">Mtria. en M Sostenible Sist Ag</option>
+		              
+		              <option VALUE="Mtria en Manejo Sost. de Agros">Mtria en Manejo Sost. de Agros</option>
+		              
+		              <option VALUE="Mtria en Med Veterinaria y P A">Mtria en Med Veterinaria y P A</option>
+		              
+		              <option VALUE="Mtria en Op Publica y Mark Pol">Mtria en Op Publica y Mark Pol</option>
+		              
+		              <option VALUE="Mtría Ing. en Construcción">Mtría Ing. en Construcción</option>
+		              
+		              <option VALUE="Mtria Manejo S de AES (Bio)">Mtria Manejo S de AES (Bio)</option>
+		              
+		              <option VALUE="Mtria Manejo S de AES (SyA)">Mtria Manejo S de AES (SyA)</option>
+		              
+		              <option VALUE="Mtria. Servicios de la Salud">Mtria. Servicios de la Salud</option>
+		              
+		              <option VALUE="Mtria.Adm.Peq. y Med. Empres">Mtria.Adm.Peq. y Med. Empres</option>
+		              
+		              <option VALUE="Mtria.en Administración.">Mtria.en Administración.</option>
+		              
+		              <option VALUE="Mtria.en Tecnologias de la Arq">Mtria.en Tecnologias de la Arq</option>
+		              
+		              <option VALUE="Música">Música</option>
+		              
+		              <option VALUE="Psicología">Psicología</option>
+		              
+		              <option VALUE="Química">Química</option>
+		              
+		              <option VALUE="Químico Farmacobiólogo">Químico Farmacobiólogo</option>
+          		</select>
+					<small class="error">Selecciona una facultad</small>
+				</div>
+			</div>
+			<div class="row">
+				<div class="small-4 columns">
+					<label class="right inline">Correo Electronico:</label>
+				</div>
+				<div class="small-8 columns">
+					<!-- Campo correo electronico-->
+					<input id="correo" name="correo" value="<%= user.correo %>" type="email" required pattern="email" placeholder="Ej. domain@email.com" />
+					<small class="error">Introduce un correo valida</small>
+				</div>
+			</div>
+ 			
+ 			<br>
+ 			<input type="submit" value="Enviar cambios" class="button"/>
+ 			<input type="hidden" name="_csrf" value="<%= _csrf %>" />
+ 		</form>
+ 	</div>
+ </div>

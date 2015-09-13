@@ -1,0 +1,23 @@
+{
+  "name": "mobsec",
+  "version": "0.0.1",
+  "homepage": "https://github.com/monkeythecoder/mobsec",
+  "authors": [
+    "Daniel <daniel.torrer@gmail.com>"
+  ],
+  "moduleType": [
+    "node"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "assets/vendor",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "react": "~0.13.1"
+  }
+}
